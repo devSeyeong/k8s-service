@@ -1,0 +1,12 @@
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+name: practice
+nodes:
+  - role: control-plane
+    extraPortMappings:      # 4단계 Ingress용: Mac의 80/443 포트를 클러스터로 연결
+      - containerPort: 80
+        hostPort: 80
+      - containerPort: 443
+        hostPort: 443
+  - role: worker
+  - role: worker
